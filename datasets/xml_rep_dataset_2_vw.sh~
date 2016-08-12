@@ -1,0 +1,32 @@
+#!/bin/sh
+
+DATASET="$1"
+
+POSSIBLE_NAMES
+
+if [ ! -e "./$DATASET/${DATASET}_data.txt" ]
+then 
+	sh ./xml_rep_file_2_vw.sh "./$DATASET/${DATASET}_data.txt"
+fi
+
+if [ ! -e "./$DATASET/${DATASET}_data.txt" ]
+then 
+	sh ./xml_rep_file_2_vw.sh "./$DATASET/${DATASET}_data.txt"
+fi
+
+
+
+# delete first line
+sed -i '1d' "./$DATASET/${DATASET}_data.txt"
+
+# add labels/features separator
+sed -i 's/\(,[0-9]*\) \([0-9]*:\)/\1 | \2/g' "./$DATASET/${DATASET}_data.txt"
+
+# remove labels separators	
+sed -i 's/,/ /g' "./$DATASET/${DATASET}_data.txt"
+
+# create train and test file
+sed -i 's/ /\n/g' "./$DATASET/${DATASET}_trSplit.txt"
+sed -i 's/ /\n/g' "./$DATASET/${DATASET}_tstSplit.txt"
+
+sed '52q;d'
