@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DATASET="$1"
+
+#delete first line
+sed -i '1d' "./$DATASET/${DATASET}_data.txt"
+
+#add labels/features separator
+sed -i 's/\(,[0-9]*\) \([0-9]*:\)/\1 | \2/g' "./$DATASET/${DATASET}_data.txt"
+
+#remove labels separators	
+sed -i 's/,/ /g' "./$DATASET/${DATASET}_data.txt"
