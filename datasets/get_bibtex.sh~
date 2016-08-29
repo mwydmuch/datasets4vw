@@ -1,8 +1,0 @@
-#!/bin/sh
-
-DATASET_NAME="Bibtex"
-DATASET_LINK="https://drive.google.com/uc?export=download&id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM"
-
-sh ./download_dataset.sh $DATASET_NAME $DATASET_LINK
-
-
