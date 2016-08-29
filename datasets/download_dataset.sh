@@ -3,6 +3,8 @@
 DATASET_NAME="$1"
 DATASET_LINK="$2"
 
+echo "DOWNLOADING AND EXTRACTING $1"
+
 if [ ! -e $DATASET_NAME ]
 then 
 	if [ ! -e "./$DATASET_NAME.zip" ]
