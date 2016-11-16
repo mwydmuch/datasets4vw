@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DATASET_NAME="Delicious"
-DATASET_LINK="https://drive.google.com/uc?export=download&id=0B3lPMIHmG6vGcy1xM2pJZ09MMGM"
+DATASET_LINK="https://drive.google.com/uc?export=download&id=0B3lPMIHmG6vGdG1jZ19VS2NWRVU"
 
 bash ./download_dataset.sh $DATASET_NAME $DATASET_LINK
 
