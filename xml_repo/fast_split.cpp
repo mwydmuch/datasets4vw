@@ -5,15 +5,13 @@
 
 using namespace std;
 
-vector<string> split(string text, char d = ' ')
-{
+vector<string> split(string text, char d = ' '){
     vector<string> result;
-
     const char *str = text.c_str();
 
     do {
         const char *begin = str;
-        while(*str != d && *str) str++;
+        while(*str != d && *str) ++str;
         result.push_back(string(begin, str));
     } while (0 != *str++);
 
