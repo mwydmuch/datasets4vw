@@ -1,7 +1,11 @@
+# all datasets
+pd_sparse/*/*
+xml_repo/*/*
+.zip
 
+# xml_repo fast split
 fast_split
 .o
 .a
 .out
-.zip
 
