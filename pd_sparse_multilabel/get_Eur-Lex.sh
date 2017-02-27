@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DATASET_NAME="Dmoz"
+DATASET_NAME="Eur-Lex"
 
 if [ ! -e $DATASET_NAME ]
 then

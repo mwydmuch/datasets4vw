@@ -14,3 +14,6 @@ echo "$EXAMPLES EXAMPLES, $CLASSES CLASSES"
 # add labels/features separator
 sed -i "s/\(\(^\|,\| \)[0-9]\+\)  *\([0-9]\+:\)/\1 | \3/g" $FILE
 
+# replace 0 with the highest class
+sed -i "s/^0 \(.*\)|/\1 ${CLASSES} |/g" $FILE
+

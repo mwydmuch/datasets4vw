@@ -1,11 +1,13 @@
-# all datasets
-pd_sparse/*/*
+# datasets
+pd_sparse_multiclass/*/*
+pd_sparse_multilabel/*/*
 xml_repo/*/*
-.zip
+*.zip
 
-# xml_repo fast split
+# c++
 fast_split
-.o
-.a
-.out
+fast_remap
+*.o
+*.a
+*.out
 
