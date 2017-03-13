@@ -6,14 +6,14 @@ XML_DATASETS="Amazon-3M AmazonCat Bibtex DeliciousLarge Delicious Mediamill RCV1
 
 echo "PD SPARSE DATASETS"
 cd pd_sparse_multiclass
-for dataset in ${PD_DATASETS[@]}; do
+for dataset in ${PD_MULTICLASS_DATASETS[@]}; do
     echo "DOWNLOADING $dataset ..."
     bash get_${dataset}.sh
 done
 cd ..
 
 cd pd_sparse_multilabel
-for dataset in ${PD_DATASETS[@]}; do
+for dataset in ${PD_MULTILABEL_DATASETS[@]}; do
     echo "DOWNLOADING $dataset ..."
     bash get_${dataset}.sh
 done
