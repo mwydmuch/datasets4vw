@@ -9,7 +9,7 @@ then
 	then
 	    echo "DOWNLOADING $DATASET_NAME ..."
 		#wget $DATASET_LINK -P ./ -O "$DATASET_NAME.zip"
-		 perl google_drive_download.pl $DATASET_LINK "$DATASET_NAME.zip"
+		perl google_drive_download.pl $DATASET_LINK "$DATASET_NAME.zip"
 	fi
 	
 	echo "EXTRACING $DATASET_NAME ..."
