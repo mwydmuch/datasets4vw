@@ -10,9 +10,11 @@ then
 
     echo "PROCESSING $DATASET_NAME ..."
 
+    mv  "./$DATASET_NAME/${FILES_PREFIX}_train.txt"  "./$DATASET_NAME/${FILES_PREFIX}_train"
+    bash ./xml_dataset_2_vw.sh "./$DATASET_NAME/${FILES_PREFIX}_train"
+
     mv  "./$DATASET_NAME/${FILES_PREFIX}_test.txt"  "./$DATASET_NAME/${FILES_PREFIX}_test"
     bash ./xml_dataset_2_vw.sh "./$DATASET_NAME/${FILES_PREFIX}_test"
 
-    mv  "./$DATASET_NAME/${FILES_PREFIX}_train.txt"  "./$DATASET_NAME/${FILES_PREFIX}_train"
-    bash ./xml_dataset_2_vw.sh "./$DATASET_NAME/${FILES_PREFIX}_train"
+    #bash ./remap_dataset.sh "./$DATASET_NAME/${FILES_PREFIX}_train" "./$DATASET_NAME/${FILES_PREFIX}_test"
 fi

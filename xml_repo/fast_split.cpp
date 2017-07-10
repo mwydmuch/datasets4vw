@@ -66,6 +66,8 @@ int main(int argc, char* argv[]){
             *outfiles[i] << outLine;
         }
     } while(getline(splitfile, line));
+
+    cout << "SPLIT TO " << sets << " DATASETS.\n";
     
     exit(0);
 }
