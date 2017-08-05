@@ -9,5 +9,5 @@ fast_split
 fast_remap
 *.o
 *.a
-*.out
-
+*
+.idea

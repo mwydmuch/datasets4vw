@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-XML_DATASETS="Amazon Amazon-3M AmazonCat AmazonCat-14K Bibtex Eurlex Delicious DeliciousLarge Mediamill RCV1-x Wiki10 WikiLSHTC Wikipedia500K"
+XML_DATASETS="Amazon-670K Amazon-3M AmazonCat-13K AmazonCat-14K Bibtex Eurlex Delicious Delicious-200K Mediamill RCV1-2K Wiki10-31K WikiLSHTC-325K Wikipedia-500K"
 
 echo "XML REPO DATASETS"
 cd xml_repo

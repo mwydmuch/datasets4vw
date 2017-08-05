@@ -2,11 +2,5 @@
 
 DATASET_NAME="imageNet"
 
-if [ ! -e $DATASET_NAME ]
-then
-    make construct dataset=$DATASET_NAME
-
-    bash ./pd_dataset_2_vw.sh "./$DATASET_NAME/$DATASET_NAME.train"
-    bash ./pd_dataset_2_vw.sh "./$DATASET_NAME/$DATASET_NAME.heldout"
-    bash ./pd_dataset_2_vw.sh "./$DATASET_NAME/$DATASET_NAME.test"
-fi
+SCRIPT_DIR=$( dirname "${BASH_SOURCE[0]}" )
+bash ${SCRIPT_DIR}/get_pd_dataset.sh $DATASET_NAME

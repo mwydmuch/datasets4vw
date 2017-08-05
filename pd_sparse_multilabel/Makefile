@@ -1,9 +1,10 @@
 dataset=
 
-construct: $(dataset).tar.bz2
+get: $(dataset).tar.bz2 construct clean
+
+construct:
 	mkdir -p $(dataset)
 	tar -xjvf $(dataset).tar.bz2
-	make clean
 
 bibtex.tar.bz2:
 	wget https://www.dropbox.com/s/yizjmqxi6ulub3y/bibtex.tar.bz2
@@ -33,4 +34,4 @@ imageNet.tar.bz2:
 	wget https://www.dropbox.com/s/898cgz76lmuz04a/imageNet.tar.bz2	
 
 clean:
-	rm *.bz2
+	rm $(dataset).tar.bz2
