@@ -38,8 +38,8 @@ function xml_dataset4vw {
 }
 
 
-echo "GETTING $FILES_PREFIX ($DATASET_NAME) ..."
 if [ ! -e ./$FILES_PREFIX ]; then
+    echo "GETTING $FILES_PREFIX ($DATASET_NAME) ..."
     if [ ! -e "./$FILES_PREFIX.zip" ]; then
         echo "DOWNLOADING ${FILES_PREFIX}.zip ..."
         #wget $DATASET_LINK -P ./ -O "$FILES_PREFIX.zip"
@@ -64,20 +64,23 @@ if [ -e "./$FILES_PREFIX/${FILES_PREFIX}_train.txt" ]; then
     # bash ${SCRIPT_DIR}/../tools/remap_dataset.sh "./$FILES_PREFIX/${FILES_PREFIX}_train" "./$FILES_PREFIX/${FILES_PREFIX}_test"
 fi
 
-if [ -e "./$FILES_PREFIX/${FILES_PREFIX}_data.txt" ]; then
+if [ -e "./$FILES_PREFIX/${DATASET_NAME}_data.txt" ]; then
 
     echo "PROCESSING ${FILES_PREFIX} ..."
 
-    mv "./$FILES_PREFIX/${FILES_PREFIX}_data.txt" "./$FILES_PREFIX/${FILES_PREFIX}_data"
+    mv "./$FILES_PREFIX/${DATASET_NAME}_data.txt" "./$FILES_PREFIX/${FILES_PREFIX}_data"
+    mv "./$FILES_PREFIX/${FILES_PREFIX}_trSplit.txt" "./$FILES_PREFIX/${FILES_PREFIX}_trSplit"
+    mv "./$FILES_PREFIX/${FILES_PREFIX}_tstSplit.txt" "./$FILES_PREFIX/${FILES_PREFIX}_tstSplit"
     xml_dataset4vw "./$FILES_PREFIX/${FILES_PREFIX}_data"
 
     # bash ${SCRIPT_DIR}/../tools/remap_dataset.sh "./$FILES_PREFIX/${FILES_PREFIX}_data"
 
-    bash ${SCRIPT_DIR}/../tools/split_dataset.sh "./$FILES_PREFIX/${FILES_PREFIX}_data" "./$FILES_PREFIX/${FILES_PREFIX}_trSplit.txt" "./$FILES_PREFIX/${FILES_PREFIX}_train"
-    bash ${SCRIPT_DIR}/../tools/split_dataset.sh "./$FILES_PREFIX/${FILES_PREFIX}_data" "./$FILES_PREFIX/${FILES_PREFIX}_tstSplit.txt" "./$FILES_PREFIX/${FILES_PREFIX}_test"
+    bash ${SCRIPT_DIR}/../tools/split_dataset.sh "./$FILES_PREFIX/${FILES_PREFIX}_data" "./$FILES_PREFIX/${FILES_PREFIX}_trSplit" "./$FILES_PREFIX/${FILES_PREFIX}_train"
+    bash ${SCRIPT_DIR}/../tools/split_dataset.sh "./$FILES_PREFIX/${FILES_PREFIX}_data" "./$FILES_PREFIX/${FILES_PREFIX}_tstSplit" "./$FILES_PREFIX/${FILES_PREFIX}_test"
 
-    rm "./$FILES_PREFIX/${FILES_PREFIX}_trSplit.txt"
-    rm "./$FILES_PREFIX/${FILES_PREFIX}_tstSplit.txt"
+    # rm "./$FILES_PREFIX/${FILES_PREFIX}_trSplit"
+    # rm "./$FILES_PREFIX/${FILES_PREFIX}_tstSplit"
+    # rm "./$FILES_PREFIX/${FILES_PREFIX}_data"
 fi
 
-rm $FILES_PREFIX.zip
+rm -f $FILES_PREFIX.zip

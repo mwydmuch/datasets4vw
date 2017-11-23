@@ -53,6 +53,8 @@ int main(int argc, char* argv[]){
         outfiles.push_back(file);
     }
 
+    cout << dataLines.size() << "\n";
+
     // Output data to files
     do{
         auto columns = split(line);
@@ -66,6 +68,10 @@ int main(int argc, char* argv[]){
             *outfiles[i] << outLine;
         }
     } while(getline(splitfile, line));
+
+    for(int i = 0; i < sets; ++i){
+        outfiles[i]->close();
+    }
 
     cout << "SPLIT TO " << sets << " DATASETS.\n";
     

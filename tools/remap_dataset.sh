@@ -6,7 +6,7 @@ SCRIPT_DIR=$( dirname "${BASH_SOURCE[0]}" )
 echo "REMAPPING $FILES ..."
 
 if [ ! -e fast_remap ]; then
-    g++ ${SCRIPT_DIR}/fast_remap.cpp -std=c++11 -o ${SCRIPT_DIR}/fast_remap
+    g++ ${SCRIPT_DIR}/fast_remap.cpp -std=c++11 -O2 -o ${SCRIPT_DIR}/fast_remap
 fi
 
 ${SCRIPT_DIR}/fast_remap $FILES
