@@ -29,6 +29,7 @@ function xml_dataset4vw {
 
     # Add labels/features separator
     $SED -i "s/\(\(^\|,\| \)[0-9]\{1,\}\)  *\([0-9]\+:\)/\1 | \3/g" $FILE
+    $SED -i "s/^ *\([0-9]\+:\)/\| \1/g" $FILE
 
     # replace 0 with the highest label
     # $SED -i "s/^0[ ,]\(.*\)|/\1 ${INFOARRAY[2]} |/g" $FILE
